@@ -1,1 +1,1 @@
-# gitea-java-client
+# gitea-scala-client
