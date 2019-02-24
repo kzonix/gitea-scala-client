@@ -14,7 +14,7 @@ case class Organization(avatarUrl: Option[String],
                         id: Int,
                         location: Option[String],
                         userName: String,
-                        webSite: Option[String])
+                        webSite: Option[String]) extends Payloads
 
 object Organization {
   def apply(fullName: Option[String],
@@ -27,7 +27,7 @@ case class User(avatarUrl: Option[String],
                 fullName: Option[String],
                 id: Int,
                 language: Option[String],
-                login: String)
+                login: String) extends Payloads
 
 object User {
   def apply(email: String,
@@ -42,7 +42,7 @@ case class CreateUserOption(email: String,
                             loginName: Option[String],
                             sentNotify: Option[Boolean],
                             sourceId: Option[Int],
-                            userName: String)
+                            userName: String) extends CreateUserOption
 
 object CreateUserOption {
   def apply(email: String,
@@ -73,4 +73,25 @@ object CreateUserOption {
       userName
     )
 }
+
+case class UpdateUserOption(active: Option[Boolean],
+                            admin: Option[Boolean],
+                            allowCreateOrganization: Option[Boolean],
+                            allowGitHook: Option[Boolean],
+                            allowImportLocal: Option[Boolean],
+                            email: Option[String],
+                            fullName: Option[String],
+                            location: Option[String],
+                            loginName: Option[String],
+                            maxRepoCreation: Option[Int],
+                            password: Option[String],
+                            prohibitLogin: Option[Boolean],
+                            sourceId: Option[Int],
+                            website: Option[String]
+                           ) extends Payloads
+
+case class ImportPubKeyOption(key: String, title: String, readOnly: Boolean = true)
+
+
+
 
